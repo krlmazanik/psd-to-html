@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+$color-black: #000000;
+$color-white: #ffffff;
+$color-red: #ff343d;
+$color-grey: #92a1a5;
+
+$font-weight-bold: 700;
+$font-weight-normal: 400;
+
+$line-height-standard: 3rem;
+
+@mixin text($color, $font-size, $font-weight, $line-height) {
+    color: $color;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+}
+
+@mixin background-image($img) {
+    background-image: url($img);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@mixin button-animation {
+    &:link, &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all .2s;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+    }
+}
+
+.top-main {
+    display: flex;
+    height: 103rem;
+    width: 100%;
+
+    .nav {
+        position: absolute;
+        padding-top: 6.8rem;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        &__left-side {
+            padding-left: 21.8rem;
+
+            &--telephone {
+                @include text($color-grey, 1.4rem, $font-weight-normal, $line-height-standard);
+                padding-left: 7.1rem;
+            }
+
+            a {
+                @include text($color-black, 2.4rem, $font-weight-bold, $line-height-standard);
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+        }
+
+        &__right-side {
+            padding-right: 21.8rem;
+
+            a {
+                @include text($color-white, 1.8rem, $font-weight-bold, $line-height-standard);
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+
+            &--hamburger {
+                padding-left: 3.8rem;
+            }
+        }
+    }
+
+    &__left-part {
+        width: 60%;
+        background-color: #eff2f6;
+
+        h1 {
+            @include text($color-black, 6rem, $font-weight-bold, $line-height-standard);
+            text-transform: uppercase;
+            padding-left: 33.4rem;
+            padding-top: 49.2rem;
+        }
+
+        p {
+            @include text($color-grey, 1.4rem, $font-weight-normal, $line-height-standard);
+            width: 39.2rem;
+            padding-top: 4.8rem;
+            padding-left: 33.4rem;
+        }
+    }
+
+    &__right-part {
+        width: 40%;
+        background-color: $color-red;
+
+        &--circle {
+            background-color: $color-white;
+            width: 65.2rem;
+            height: 65.2rem;
+            border-radius: 50%;
+            z-index: 1;
+            position: absolute;
+            margin-top: 18.8rem;
+            transform: translate(-50%);
+
+            img {
+                transform: translate(-19.2rem, 4.4rem);
+            }
+        }
+    }
+}
+
+.middle-fly-block {
+    width: 100%;
+    height: 61.4rem;
+    display: flex;
+    flex-wrap: nowrap;
+
+    .tap-fly {
+        @include background-image('../img/drone-grey-circle.png');
+        width: 30%;
+        height: inherit;
+        display: flex;
+        justify-content: center;
+
+        &--text {
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+
+        h2 {
+            @include text($color-black, 6rem, $font-weight-bold, 6rem);
+        }
+
+        p {
+            @include text($color-grey, 1.4rem, $font-weight-normal, $line-height-standard);
+        }
+    }
+
+    .fly-higher {
+        @include background-image('../img/fly-higher.png');
+        width: 70%;
+        height: inherit;
+        display: flex;
+
+        &--text {
+            height: inherit;
+            width: 43%;
+            background-color: black;
+            opacity: 0.8;
+
+            color: $color-white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            p {
+                @include text($color-white, 6rem, $font-weight-bold, 7.2rem);
+            }
+        }
+
+        &__button {
+            margin: auto;
+            transform: rotate(-90deg);
+            padding-top: 25%;
+            
+
+            &--button {
+                @include text($color-black, 1.8rem, $font-weight-bold, 6rem);
+                @include button-animation();
+                background-color: $color-white;
+                border-radius: 2.9rem;
+                text-transform: uppercase;
+                height: 5.7rem;
+                width: 18.2rem;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.features {
+    height: 60rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        @include text($color-black, 4.8rem, $font-weight-bold, 6rem);
+        margin: 0 auto;
+        padding: 12.6rem 0 11.8rem 0;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        width: 90%;
+        justify-content: space-around;
+
+        &--block {
+            text-align: center;
+
+            p {
+                @include text($color-black, 3rem, $font-weight-normal, 6rem);
+                padding-top: 7rem;
+            }
+        }
+    }
+}
+
+.generation-vision {
+    width: 100%;
+    height: 65.6rem;
+    display: flex;
+
+    &__img {
+        @include background-image('../img/pad-control-dron.png');
+        width: 50%;
+        height: inherit;
+    }
+
+    &__block-wrapper {
+        @include background-image('../img/background-grey-drone.png');
+        width: 50%;
+        height: inherit;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &--text {
+            @include text($color-white, 9.2rem, $font-weight-normal, 10.2rem);
+            width: 80%;
+            padding-left: 13rem;
+
+
+            span {
+                @include text($color-red, inherit, inherit, inherit);
+            }
+        }
+
+        &--button {
+            @include text($color-white, 1.8rem, $font-weight-bold, 6rem);
+            @include button-animation();
+            width: 18.2rem;
+            height: 5.7rem;
+            border-radius: 2.9rem;
+            border: 0.2rem solid #3b3b3b;
+            background-color: transparent;
+            margin-left: 13rem;
+            margin-top: 4.8rem;
+            text-align: center;
+        }
+    }
+}
+
+.generation-flying {
+    background-color: $color-white;
+    width: 100%;
+    height: 59rem;
+    display: flex;
+    flex-direction: row;
+
+    &__block-wrapper {
+        width: 50%;
+        height: inherit;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &--text {
+            @include text(#232323, 9.2rem, $font-weight-normal, 10.2rem);
+            width: 80%;
+            align-self: flex-end;
+
+
+            span {
+                @include text($color-red, inherit, inherit, inherit);
+            }
+        }
+
+        &--button {
+            @include text($color-black, 1.8rem, $font-weight-bold, 6rem);
+            @include button-animation();
+            width: 17.2rem;
+            height: 5.7rem;
+            margin-left: 20%;
+            margin-top: 6.2rem;
+            border-radius: 2.9rem;
+            border: 0.2rem solid #eff2f6;
+            background-color: $color-white;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+
+    &__img {
+        overflow: hidden;
+        width: 50%;
+        height: inherit;
+
+        img {
+            transform: scale(0.8);
+        }
+    }
+}
+
+.start-journey {
+    @include background-image('../img/ships-background.png');
+    width: 100%;
+    height: 95rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__text {
+        @include text($color-white, 9.2rem, $font-weight-bold, 10.2rem);
+        padding-top: 25%;
+    }
+
+    &__button {
+        @include text(#318f76, 1.8rem, $font-weight-bold, 6rem);
+        @include button-animation();
+        margin-top: 5.6rem;
+        width: 18.2rem;
+        height: 5.7rem;
+        border-radius: 2.9rem;
+        background-color: $color-white;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
+
+.footer {
+    margin: 0 auto;
+    width: 50%;
+    height: 32rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__heading {
+        @include text($color-black, 2.4rem, $font-weight-bold, $line-height-standard);
+        text-transform: uppercase;
+    }
+
+    &__text {
+        @include text($color-grey, 1.4rem, $font-weight-normal, $line-height-standard);
+        margin-top: 3.4rem;
+    }
+}
